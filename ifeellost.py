@@ -1,6 +1,8 @@
 from googlesearch import search
 from colorama import Fore, Style, init
 import time
+import requests
+
 
 init(autoreset=True)
 
@@ -27,15 +29,20 @@ time.sleep(2)
 
 query = input(Fore.RED + "What you want to search: ")
 
+time.sleep(1)
+
 print(Fore.YELLOW + "Searching for: " + query)
 
 choose_num = input(Fore.YELLOW + "How many results do you want to see? (default is 20): ")
 
 check_if_advanced = input(Fore.YELLOW + "Do you want to use advanced search options? (yes/no): ").strip().lower()
 
+proxy = input(Fore.YELLOW + "Do you want to use a proxy? (yes/no): ").strip().lower()
+
+proxy_input = None if proxy != 'yes' else input(Fore.YELLOW + "Please enter your proxy (format: http://host:port): ").strip()
 
 try:
-    results = search(query, num_results=int(choose_num) if choose_num.isdigit() else 20, advanced=check_if_advanced == 'yes')
+    results = search(query, num_results=int(choose_num) if choose_num.isdigit() else 20, advanced=check_if_advanced == 'yes', proxy=proxy if proxy == 'yes' else None)
     print(Fore.CYAN + "Search Results:")
     for i, result in enumerate(results, start=1):
         print(Fore.BLUE + f"{i}. {result}")
