@@ -31,8 +31,11 @@ print(Fore.YELLOW + "Searching for: " + query)
 
 choose_num = input(Fore.YELLOW + "How many results do you want to see? (default is 20): ")
 
+check_if_advanced = input(Fore.YELLOW + "Do you want to use advanced search options? (yes/no): ").strip().lower()
+
+
 try:
-    results = search(query, num_results=int(choose_num) if choose_num.isdigit() else 20)
+    results = search(query, num_results=int(choose_num) if choose_num.isdigit() else 20, advanced=check_if_advanced == 'yes')
     print(Fore.CYAN + "Search Results:")
     for i, result in enumerate(results, start=1):
         print(Fore.BLUE + f"{i}. {result}")
