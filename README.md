@@ -1,2 +1,7 @@
-# ifeellost
-a CLI tool, help you to search for what you need, quick, easy
+# Name
+- ifeellost
+
+  # Abilities
+  - can search faster and show the URL
+  - have limit about search results
+
