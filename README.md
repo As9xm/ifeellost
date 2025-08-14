@@ -1,7 +1,6 @@
 # Name
-- ifeellost
+ifeellost
 
-  # Abilities
-  - can search faster and show the URL
-  - have limit about search results
-
+# Features
+- search faster for URLs
+- limit the search results as you want
